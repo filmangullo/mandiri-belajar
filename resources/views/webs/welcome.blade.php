@@ -15,7 +15,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Educature Education</title>
+	<title>{{ config('app.name', 'Laravel') }}</title>
 
 	<!--
 			Google Font
@@ -126,12 +126,11 @@
 			<div class="row align-items-center">
 				<div class="col-lg-5 about-right">
 					<h1>
-						Ini sebabnya <br> Kami memiliki Ide yang Solid
+						Ini sebabnya <br> Kami Memiliki Ide yang Kreatif
 					</h1>
 					<div class="wow fadeIn" data-wow-duration="1s">
 						<p>
-							Ada saat dalam  setiap pembelajaran yang bercita-cita tinggi bahwa inilah saatnya untuk menambah ilmu yang masih kurang di pahami. Sangat menarik untuk berpikir
-tentang apa yang ingin di ketahui dalam proses pembelajaran Anda sendiri.
+							Berpikir kreatif membuka jalan bagi generasi unggul. Bersama ide-ide baru, kita bangun Indonesia Emas yang cerdas, inovatif, dan penuh harapan
 						</p>
 					</div>
 					<a href="{{ route('index.courses') }}" class="primary-btn white">Explore Courses</a>

@@ -52,7 +52,7 @@ menu-active
                 <div class="single-contact-address d-flex flex-row">
 
                     <div class="contact-details">
-                        <p>Pendidik ini Lahir di Gunungsitoli, 14 Mei 2000 anak kedua dari bapak Atosokhi Gulo mahasiswa di Fakultas Teknik jurusan Pendidikan Teknik Elektro Tahun 2018 Universitas Negeri Medan, pernah bersekolah di SDN 075062 Doli-doli (2006-2012), SMP Negeri 2 Mandrehe (2012-2015), SMKN Binaan Provsu Medan(20015-2018).   </p>
+                        <p>Pendidik ini Lahir di Gunungsitoli, 14 Mei 2000 anak kedua dari bapak Atosokhi Gulo mahasiswa di Fakultas Teknik jurusan Pendidikan Teknik Elektro Tahun 2018 Universitas Negeri Medan, pernah bersekolah di SDN 075062 Doli-doli (2006-2012), SMP Negeri 2 Mandrehe (2012-2015), SMKN Binaan Provsu Medan(2015-2018).   </p>
                     </div>
                 </div>
             </div>
