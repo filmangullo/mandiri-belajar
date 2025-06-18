@@ -31,28 +31,28 @@ menu-active
             </div>
             <div class="col-lg-6 d-flex flex-column address-wrap">
                 <div class="single-contact-address d-flex flex-row">
-                    
+
                     <div class="contact-details">
-                        <h5>Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: M. Faisal Faturrahman</h5>
-                
+                        <h5>Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: SONOAKHIMANTAPTIUS GULO</h5>
+
                     </div>
                 </div>
                 <div class="single-contact-address d-flex flex-row">
-                   
+
                     <div class="contact-details">
-                        <p>email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : faisalfaturrahman@koranpsms.com</p>
+                        <p>email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : sonoakhimantaptius.gulo@gmail.com</p>
                     </div>
                 </div>
                 <div class="single-contact-address d-flex flex-row">
-                   
+
                     <div class="contact-details">
-                        <p>whatsapp&nbsp; : 0821-6008-2840</p>
+                        <p>whatsapp&nbsp; : 0823-6117-6532</p>
                     </div>
                 </div>
                 <div class="single-contact-address d-flex flex-row">
-                   
+
                     <div class="contact-details">
-                        <p>Pria ini Lahir medan 16 januari 1996 anak pertama dari bapak Alm.abdul syukur mahasiswa di Fakultas Teknik jurusan Pendidikan Teknik Elektro Tahun 2014 Universitas Negeri Medan, pernah bersekolah di SDN 067978(2002-2008), SMPIT Al Fityan School Medan(2008-2011), SMKN Binaan Provsu Medan(20011-2014).   </p>
+                        <p>Pendidik ini Lahir di Gunungsitoli, 14 Mei 2000 anak kedua dari bapak Atosokhi Gulo mahasiswa di Fakultas Teknik jurusan Pendidikan Teknik Elektro Tahun 2018 Universitas Negeri Medan, pernah bersekolah di SDN 075062 Doli-doli (2006-2012), SMP Negeri 2 Mandrehe (2012-2015), SMKN Binaan Provsu Medan(20015-2018).   </p>
                     </div>
                 </div>
             </div>

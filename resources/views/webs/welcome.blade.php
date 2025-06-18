@@ -92,9 +92,9 @@
 		<div class="container">
 			<div class="row fullscreen d-flex align-items-center justify-content-center">
 				<div class="banner-content col-lg-8 col-md-12">
-					<h1 class="wow fadeIn" data-wow-duration="4s">SMK NEGERI 14 MEDAN </h1>
+					<h1 class="wow fadeIn" data-wow-duration="4s">SMK SWASTA TELADAN SUMUT 2 </h1>
 					<p class="text-white">
-						Jl. Karya Dalam No.26 Kel. Karang Berombak Kec. Medan Barat Sumatera Utara.
+                        Jl. Pendidikan No.62 Kel. Cinta Damai, Kec. Medan Helvetia, Kota Medan Prov. Sumatera Utara.
 					</p>
 
 					<div class="input-wrap">

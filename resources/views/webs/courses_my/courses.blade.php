@@ -44,28 +44,31 @@ menu-active
         </div>
         <div class="feature-inner row">
             @foreach ($kelas as $item)
-                <div class="col-lg-4 col-md-6">
-                  @if ( Auth::user()->id == $item->user_id )
-                    <form action="{{ route('destroy.courses', $item->id )}}" method="post">
-                        <input class="genric-btn danger-border float-right" type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this item?');" />
-                        @method('delete')
-                        @csrf
-                    </form>
-                  @endif
+                @if ($item->kelasMataPelajarans != null)
+                    <div class="col-lg-4 col-md-6">
+                        @if ( Auth::user()->id == $item->user_id )
+                            <form action="{{ route('destroy.courses', $item->id )}}" method="post">
+                                <input class="genric-btn danger-border float-right" type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this item?');" />
+                                @method('delete')
+                                @csrf
+                            </form>
+                        @endif
 
 
-                    <div class="feature-item">
-                        <p>
-                          <i class="fa fa-book"></i>&nbsp;{{ $item->kelasMataPelajarans->users['name'] }}
-                        </p>
-                        <h4><a href="{{ route('show.courses', $item->kelasMataPelajarans['id']) }}">{{ $item->kelasMataPelajarans['nama'] }}</a></h4>
-                        <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
+
+                        <div class="feature-item">
                             <p>
-                                {{ substr($item->kelasMataPelajarans['keterangan'],0,60).'...' }}
+                            <i class="fa fa-book"></i>&nbsp;{{ $item->kelasMataPelajarans->users['name'] }}
                             </p>
+                            <h4><a href="{{ route('show.courses', $item->kelasMataPelajarans['id']) }}">{{ $item->kelasMataPelajarans['nama'] }}</a></h4>
+                            <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
+                                <p>
+                                    {{ substr($item->kelasMataPelajarans['keterangan'],0,60).'...' }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
 
         </div>

@@ -18,10 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+    .bg-linear {
+        background: linear-gradient(90deg, #FFA500, #FF4500, #FF0000) !important;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-utama shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-linear shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ URL::asset('webs/img/logo.png') }}" alt="" title="" />
