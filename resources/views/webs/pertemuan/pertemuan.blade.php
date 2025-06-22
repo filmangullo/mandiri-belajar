@@ -297,8 +297,13 @@ menu-active
                     <div class="single-element-widget mt-30 ">
                         @if ($panel->open_kuis == true || auth::user()->role == 'pengajar')
                             @if ($panel->open_kuis == true)
-                                <p>Kuis Telah ada,..? <br>dibuka :{{date('d M Y - H:i a',strtotime($panel->launch_date))}}</p>
-                                @if (strtotime(date('Y/m/d H:i:s')) >= strtotime($panel->launch_date))
+                                <p>
+                                    Kuis Telah ada,..?
+                                    <br>dibuka :{{date('d M Y - H:i a',strtotime($panel->launch_date))}}
+                                    <br>berakhir :{{date('d M Y - H:i a',strtotime($panel->deadline))}}
+
+                                </p>
+                                @if (strtotime(date('Y/m/d H:i:s')) >= strtotime($panel->launch_date) && strtotime(date('Y/m/d H:i:s')) <= strtotime($panel->deadline))
                                     <a href="{{ route('index.kuis', $forum->id) }}"
                                         class="genric-btn btn-block success circle arrow text-center">Mulai Kuis<span
                                             class="lnr lnr-arrow-right"></span></a>
@@ -312,12 +317,15 @@ menu-active
                     <div class="single-element-widget mt-30 ">
                         @if ($panelTugas->open_tugas == true || auth::user()->role == 'pengajar')
                             @if ($panelTugas->open_tugas == true )
-                                <p>Tugas Telah dibuka,..?</p>
-                                <p>Deadline :{{date('d M Y - H:i a',strtotime($panelTugas->deadline))}}</p>
+                                <p>
+                                    Tugas Telah dibuka,..? <br>
+                                    Dimulai :{{date('d M Y - H:i a',strtotime($panelTugas->launch_date))}} <br>
+                                    Berakhir :{{date('d M Y - H:i a',strtotime($panelTugas->deadline))}}
+                                </p>
                             @elseif($panelTugas->open_tugas == false)
                                 <p>Tugas Belum dibuka,..!</p>
-                        @endif
-                            @if (strtotime(date('Y/m/d H:i:s')) <= strtotime($panelTugas->deadline))
+                            @endif
+                            @if (strtotime(date('Y/m/d H:i:s')) >= strtotime($panelTugas->launch_date) && strtotime(date('Y/m/d H:i:s')) <= strtotime($panelTugas->deadline))
                                 <a href="{{ route('index.tugas', $forum->id) }}"
                                     class="genric-btn btn-block info circle arrow text-center">Kerjakan Tugas<span
                                         class="lnr lnr-arrow-right"></span></a>

@@ -56,10 +56,16 @@ menu-active
                         class="form-control">
                 </div>
                 <div class="col-md-4 text-center">
+                    <label for="cars">Dealine:
+                        {{ $panel->deadline == null ? "Belum set" :  date('d F Y - H:i a',strtotime($panel->deadline)) }}</label>
+                    <input type="datetime-local" id="deadline" name="deadline" value="{{ $panel->deadline }}"
+                        class="form-control">
+                </div>
+                <div class="col-md-6 text-center mt-10">
                   <label for="cars">Jumlah Soal Yg akan di Kerjakan:</label>
                     <input type="number" id="open_soal" name="open_soal" value="{{$panel->open_soal}}" class="form-control">
                 </div>
-                <div class="col-md-12 text-center mt-10">
+                <div class="col-md-6 text-center mt-10">
                   <label for="cars">Save Setelah Melakukan Perubahan..!</label>
                     <button type="submit" class="genric-btn primary btn-block medium radius form-control ">Save</button>
                 </div>

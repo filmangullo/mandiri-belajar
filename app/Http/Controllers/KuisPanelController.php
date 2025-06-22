@@ -57,6 +57,7 @@ class KuisPanelController extends Controller
         $query->open_kuis = $request->open_kuis == "true" ? true : false;
         $query->open_soal = $request->open_soal;
         $query->launch_date = $request->launch_date;
+        $query->deadline = $request->deadline;
         $query->save();
 
         return redirect()->route('index.kuispanel', $query->forum_id)
