@@ -37,7 +37,7 @@ menu-active
             <div class="row mb-10">
                 <div class="col-md-12 text-center">
                     <a href="javascript:void(0);" data-href="{{ route('create_soal.kuispanel', $forum->id) }}"
-                        class="primary-btn text-center openPopup">Buat Soal Kuis</a>
+                        class="primary-btn text-center mb-10 openPopup">Buat Soal Kuis</a>
                 </div>
 
                 <div class="col-md-4 text-center">
@@ -50,10 +50,16 @@ menu-active
                     </select>
                 </div>
                 <div class="col-md-4 text-center">
+                    <label for="cars">Launch date:
+                        {{ $panel->launch_date == null ? "Belum set" :  date('d F Y - H:i a',strtotime($panel->launch_date)) }}</label>
+                    <input type="datetime-local" id="launch_date" name="launch_date" value="{{ $panel->launch_date }}"
+                        class="form-control">
+                </div>
+                <div class="col-md-4 text-center">
                   <label for="cars">Jumlah Soal Yg akan di Kerjakan:</label>
                     <input type="number" id="open_soal" name="open_soal" value="{{$panel->open_soal}}" class="form-control">
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-12 text-center mt-10">
                   <label for="cars">Save Setelah Melakukan Perubahan..!</label>
                     <button type="submit" class="genric-btn primary btn-block medium radius form-control ">Save</button>
                 </div>
