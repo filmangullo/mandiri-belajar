@@ -36,7 +36,8 @@ menu-active
             </ul>
 
             <h5>Untuk panduan lengkap datap di download pada link berikut :</h5>
-            <a href="{{ URL::asset('panduan.docx') }}" download="{{ URL::asset('panduan.docx') }}">{{ URL::asset('panduan.docx') }}</a>
+            <a href="{{ URL::asset('Panduan_Guru(Pendidik).docx') }}" download="{{ URL::asset('Panduan_Guru(Pendidik).docx') }}">{{ URL::asset('Panduan_Guru(Pendidik).docx') }}</a>
+            <a href="{{ URL::asset('Panduan_Pelajar(Peserta_didik).docx') }}" download="{{ URL::asset('Panduan_Pelajar(Peserta_didik).docx') }}">{{ URL::asset('Panduan_Pelajar(Peserta_didik).docx') }}</a>
         </div>
 
     </div>
