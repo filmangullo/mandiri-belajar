@@ -137,7 +137,7 @@ menu-active
 
                 <div class="col-lg-8 col-md-8">
                     {{-- video --}}
-                    
+
                     @foreach ($video as $key => $value)
                         @if (auth::user()->role == 'pengajar')
                             <form action="{{ route('destroy.video', $value->id) }}"
@@ -159,7 +159,7 @@ menu-active
                                 Your browser does not support the video tag.
                             </video>
                         @endif
-                        
+
                     @endforeach
 
                     {{-- End video --}}
@@ -213,7 +213,7 @@ menu-active
                                         <h5><a href="#">{{ $value->users['name'] }}</a></h5>
                                         <p class="date">{{ date_format($value->created_at, "F d, Y" ) }} at
                                             {{ date_format($value->created_at, "H:i:s" ) }} </p>
-                                        <p class="comment">{{ $value->diskusi }} 
+                                        <p class="comment">{{ $value->diskusi }}
                                             @if ($value->extension_file != null &&  $value->extension_file ==  'jpeg' || 'png' || 'jpeg')
                                             <img src="{{asset('storage/'.$value->file)}}" alt="" width="90%">
                                             @endif
@@ -296,26 +296,36 @@ menu-active
                 <div class="col-lg-3 col-md-4" style="height: 740px;">
                     <div class="single-element-widget mt-30 ">
                         @if ($panel->open_kuis == true || auth::user()->role == 'pengajar')
-                        @if ($panel->open_kuis == true)
-                        <p>Kuis Telah dibuka,..?</p>
-                        @elseif($panel->open_kuis == false)
-                        <p>Kuis Belum dibuka,..!</p>
-                        @endif
-                        <a href="{{ route('index.kuis', $forum->id) }}"
-                            class="genric-btn btn-block success circle arrow text-center">Mulai Kuis<span
-                                class="lnr lnr-arrow-right"></span></a>
+                            @if ($panel->open_kuis == true)
+                                <p>
+                                    Kuis Telah ada,..?
+                                    <br>dibuka :{{date('d M Y - H:i a',strtotime($panel->launch_date))}}
+                                    <br>berakhir :{{date('d M Y - H:i a',strtotime($panel->deadline))}}
+
+                                </p>
+                                @if (strtotime(date('Y/m/d H:i:s')) >= strtotime($panel->launch_date) && strtotime(date('Y/m/d H:i:s')) <= strtotime($panel->deadline))
+                                    <a href="{{ route('index.kuis', $forum->id) }}"
+                                        class="genric-btn btn-block success circle arrow text-center">Mulai Kuis<span
+                                            class="lnr lnr-arrow-right"></span></a>
+                                @endif
+                            @elseif($panel->open_kuis == false)
+                                <p>Kuis Belum dibuka,..!</p>
+                            @endif
                         @endif
                     </div>
 
                     <div class="single-element-widget mt-30 ">
                         @if ($panelTugas->open_tugas == true || auth::user()->role == 'pengajar')
                             @if ($panelTugas->open_tugas == true )
-                                <p>Tugas Telah dibuka,..?</p>
-                                <p>Deadline :{{date('d M Y - H:i a',strtotime($panelTugas->deadline))}}</p>
+                                <p>
+                                    Tugas Telah dibuka,..? <br>
+                                    Dimulai :{{date('d M Y - H:i a',strtotime($panelTugas->launch_date))}} <br>
+                                    Berakhir :{{date('d M Y - H:i a',strtotime($panelTugas->deadline))}}
+                                </p>
                             @elseif($panelTugas->open_tugas == false)
                                 <p>Tugas Belum dibuka,..!</p>
-                        @endif
-                            @if (strtotime(date('Y/m/d H:i:s')) <= strtotime($panelTugas->deadline))
+                            @endif
+                            @if (strtotime(date('Y/m/d H:i:s')) >= strtotime($panelTugas->launch_date) && strtotime(date('Y/m/d H:i:s')) <= strtotime($panelTugas->deadline))
                                 <a href="{{ route('index.tugas', $forum->id) }}"
                                     class="genric-btn btn-block info circle arrow text-center">Kerjakan Tugas<span
                                         class="lnr lnr-arrow-right"></span></a>
@@ -337,7 +347,7 @@ menu-active
 
                             <div class="primary-checkbox ">
                             @if(Cache::has('user-is-online-' . $value->users['id']))
-                            
+
                                 {!! $value->users['role'] == 'pengajar' ? '<span
                                     class="lnr lnr-briefcase text-success"></span>' :
                                 '<span class="lnr lnr-graduation-hat text-success"></span>' !!}
@@ -345,11 +355,11 @@ menu-active
                                 {!! $value->users['role'] == 'pengajar' ? '<span
                                     class="lnr lnr-briefcase text-secondary"></span>' :
                                 '<span class="lnr lnr-graduation-hat text-secondary"></span>' !!}
-                            
+
                             @endif
                             </div>
                         </div>
-                        
+
                         @endforeach
                     </div>
                 </div>

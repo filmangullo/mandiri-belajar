@@ -58,12 +58,18 @@ menu-active
                         </select>
                 </div>
                 <div class="col-md-4 text-center">
+                    <label for="cars">Launch date:
+                        {{ $panel->launch_date == null ? "Belum set" :  date('d F Y - H:i a',strtotime($panel->launch_date)) }}</label>
+                    <input type="datetime-local" id="launch_date" name="launch_date" value="{{ $panel->launch_date }}"
+                        class="form-control">
+                </div>
+                <div class="col-md-4 text-center">
                     <label for="cars">Deadline:
                         {{ $panel->deadline == null ? "Belum set" :  date('d F Y - H:i a',strtotime($panel->deadline)) }}</label>
                     <input type="datetime-local" id="open_soal" name="deadline" value="{{ $panel->deadline }}"
                         class="form-control">
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-12 text-center mt-10">
                     <label for="cars">Save Setelah Melakukan Perubahan..!</label>
                     <button type="submit" class="genric-btn primary btn-block medium radius form-control ">Save</button>
                 </div>

@@ -56,6 +56,7 @@ class TugasPanelController extends Controller
     {
         $query = ForumTugasPanel::findorFail($id);
         $query->open_tugas  = $request->open_tugas == "true" ? true : false;
+        $query->launch_date = $request->launch_date;
         $query->deadline    = $request->deadline;
         $query->save();
 
@@ -98,7 +99,7 @@ class TugasPanelController extends Controller
     public function edit_tugas ($id)
     {
         $tugas = ForumTugas::findOrFail($id);
-        
+
         $forum = Forum::where('id', $tugas->forum_id)
                     ->first();
         return view('webs.tugas.edit_tugas',[
@@ -119,7 +120,7 @@ class TugasPanelController extends Controller
         }
     }
 
-    public function destroy_tugas ($id) 
+    public function destroy_tugas ($id)
     {
         $query = ForumTugas::findorFail($id);
         $forum_id = $query->forum_id;
@@ -199,9 +200,9 @@ class TugasPanelController extends Controller
         }
     }
 
-    public function destroy_file ($id) 
+    public function destroy_file ($id)
     {
-        
+
         $file = ForumTugas::findOrFail($id);
         $forum_id = $file->forum_id;
 
@@ -213,6 +214,6 @@ class TugasPanelController extends Controller
             return redirect()->route('index.tugaspanel', $forum_id);
         }
 
-        
+
     }
 }
