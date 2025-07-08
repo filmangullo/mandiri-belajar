@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use Vish4395\LaravelFileViewer\LaravelFileViewer;
 use App\Forum;
 use App\ForumTugas;
 use App\ForumTugasPanel;
+use Illuminate\Support\Str;
 use Auth;
 
 class TugasPanelController extends Controller
@@ -167,6 +169,19 @@ class TugasPanelController extends Controller
     {
         $query = ForumTugas::findOrFail($id);
         return response()->download(storage_path('app/' . $query->tugas));
+    }
+
+    public function filePreview($fileName, $label) {
+        $filePath =  Str::after($fileName, 'public/');;
+        $disk = 'public';
+        $fileUrl = asset('storage/' . $fileName);
+        $fileData = [
+            [
+                'label' => __('Label'),
+                'value' => $label
+            ]
+        ];
+        return LaravelFileViewer::show($fileName, $filePath, $fileUrl, $disk, $fileData);
     }
 
     public function change_file ($id)

@@ -111,6 +111,7 @@ Route::prefix('courses-forum-pertemuan-tugas-panel')->middleware('auth')->group(
     Route::get('/{id}/open_file', 'TugasPanelController@open_file')->name('open_file.tugaspanel');
     Route::post('/{id}/upload_file', 'TugasPanelController@upload_file')->name('upload_file.tugaspanel');
     Route::get('/{id}/download', 'TugasPanelController@download')->name('download.tugasonpanel');
+    Route::get('/{filename}/{label}/file-preview', 'TugasPanelController@filePreview')->name('filePreview.tugasonpanel');
     Route::get('/{id}/change_file', 'TugasPanelController@change_file')->name('change_file.tugaspanel');
     Route::post('/{id}/save_change_file', 'TugasPanelController@save_change_file')->name('save_change_file.tugaspanel');
     Route::delete('/{id}/destroy_file', 'TugasPanelController@destroy_file')->name('destroy_file.tugaspanel');

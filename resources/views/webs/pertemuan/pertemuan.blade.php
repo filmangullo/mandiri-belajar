@@ -183,6 +183,9 @@ menu-active
                             <h4 class="mb-10">File Materi</h4>
                         @endif
                         @foreach ($file as $key => $value)
+                        <div>
+                            <iframe src="{!! route( 'filePreview.tugasonpanel', str_replace('public/', '', [$value->file,  $value->name]) )!!}" frameborder="0" style="width:100%;height:640px;"></iframe>
+                        </div>
                         <p><a href="{{route('download.file', $value->id) }}"><i
                                     class="lnr lnr-download"></i>&nbsp;Download</a>&nbsp;
                             {{ $value->name }}. &nbsp;
