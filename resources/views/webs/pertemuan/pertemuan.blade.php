@@ -80,19 +80,27 @@ menu-active
             </div>
             @if (auth::user()->role == 'pengajar')
             <div class="row mb-20">
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <a href="javascript:void(0);" data-href="{{ route('create.deskripsi', $forum->id) }}"
                         class="primary-btn btn-block text-center openPopup">Add Deskripsi</a>
                 </div>
-                <div class="col-md-2">
+
+                <div class="col-md-4">
+                    <a href="javascript:void(0);" data-href="{{ route('create.slide', $forum->id) }}"
+                        class="primary-btn btn-block text-center openPopup">Add Slide</a>
+                </div>
+
+                <div class="col-md-4">
                     <a href="javascript:void(0);" data-href="{{ route('create.file', $forum->id) }}"
                         class="primary-btn btn-block text-center openPopup">Add File</a>
                 </div>
-                <div class="col-md-2">
+            </div>
+            <div class="row mb-20">
+                <div class="col-md-4">
                     <a href="javascript:void(0);" data-href="{{ route('create.video', $forum->id) }}"
                         class="primary-btn btn-block text-center openPopup">Add Video</a>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <a href="javascript:void(0);" data-href="{{ route('create.link', $forum->id) }}"
                         class="primary-btn btn-block text-center openPopup">Add Link</a>
                 </div>
@@ -179,13 +187,20 @@ menu-active
                     </div>
 
                     <div class="wow fadeIn" data-wow-duration="1s">
+                        @foreach ($slide as $key => $value)
+                        <div class="mb-30">
+                            <iframe src="{!! route( 'filePreview.tugasonpanel', str_replace('public/', '', [$value->slide,  $value->name]) )!!}" frameborder="0" style="width:100%;height:640px;"></iframe>
+                            @if (auth::user()->role == 'pengajar')
+                            <a href="{{ route('destroy.slide', $value->id) }}" rel="noopener noreferrer"><i
+                                    class="lnr lnr-trash"></i></a>
+                            @endif
+                        </div>
+                        @endforeach
+
                         @if($file != null)
                             <h4 class="mb-10">File Materi</h4>
                         @endif
                         @foreach ($file as $key => $value)
-                        <div>
-                            <iframe src="{!! route( 'filePreview.tugasonpanel', str_replace('public/', '', [$value->file,  $value->name]) )!!}" frameborder="0" style="width:100%;height:640px;"></iframe>
-                        </div>
                         <p><a href="{{route('download.file', $value->id) }}"><i
                                     class="lnr lnr-download"></i>&nbsp;Download</a>&nbsp;
                             {{ $value->name }}. &nbsp;

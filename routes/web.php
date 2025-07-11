@@ -69,6 +69,13 @@ Route::prefix('courses-forum-pertemuan-file')->middleware('auth')->group(functio
     Route::get('/{id}/delete', 'ForumFileController@destroy')->name('destroy.file');
 });
 
+Route::prefix('courses-forum-pertemuan-slide')->middleware('auth')->group(function () {
+    Route::get('/{id}/create', 'ForumSlideController@create')->name('create.slide');
+    Route::post('/{id}/store', 'ForumSlideController@store')->name('store.slide');
+    Route::get('/{id}', 'ForumSlideController@download')->name('download.slide');
+    Route::get('/{id}/delete', 'ForumSlideController@destroy')->name('destroy.slide');
+});
+
 Route::prefix('courses-forum-pertemuan-video-add')->middleware('auth')->group(function () {
     Route::get('/{id}/create', 'ForumVideoController@create')->name('create.video');
     Route::post('/{id}/store', 'ForumVideoController@store')->name('store.video');

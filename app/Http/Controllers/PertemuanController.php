@@ -7,6 +7,7 @@ use App\Participant;
 use App\Forum;
 use App\ForumDeskripsi;
 use App\ForumFile;
+use App\ForumSlide;
 use App\ForumDiskusi;
 use App\DiskusiComment;
 use App\ForumKuisPanel;
@@ -47,6 +48,9 @@ class PertemuanController extends Controller
         $file = ForumFile::where('forum_id', $id)
                       ->get();
 
+        $slide = ForumSlide::where('forum_id', $id)
+                      ->get();
+
         $video = ForumVideo::where('forum_id', $id)
                       ->get();
 
@@ -71,6 +75,7 @@ class PertemuanController extends Controller
             'forum'       => $forum,
             'deskripsi'   => $deskripsi,
             'file'        => $file,
+            'slide'       => $slide,
             'video'       => $video,
             'diskusi'     => $diskusi,
             'comments'    => $comments,
