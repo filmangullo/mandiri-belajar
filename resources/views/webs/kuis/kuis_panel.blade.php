@@ -97,11 +97,36 @@ menu-active
                       <img src="{{asset('storage/'.$img->img)}}" alt="Girl in a jacket" width="50%">
                 <?php endforeach; ?>
                 <ol>
-                  <li>a. {{ $value->pilihan_a }}</li>
-                  <li>b. {{ $value->pilihan_b }}</li>
-                  <li>c. {{ $value->pilihan_c }}</li>
-                  <li>d. {{ $value->pilihan_d }}</li>
-                  <li>e. {{ $value->pilihan_e }}</li>
+                  <li>a. {{ $value->pilihan_a }}
+                    <br>
+                    @if ($value->img_pilihan_a)
+                        <img src="{{asset('storage/'.$value->img_pilihan_a)}}" alt="{{$value->img_pilihan_a}}" width="50%">
+                    @endif
+                  </li>
+                  <li>b. {{ $value->pilihan_b }}
+                    <br>
+                    @if ($value->img_pilihan_b)
+                        <img src="{{asset('storage/'.$value->img_pilihan_b)}}" alt="{{$value->img_pilihan_b}}" width="50%">
+                    @endif
+                  </li>
+                  <li>c. {{ $value->pilihan_c }}
+                    <br>
+                    @if ($value->img_pilihan_c)
+                        <img src="{{asset('storage/'.$value->img_pilihan_c)}}" alt="{{$value->img_pilihan_c}}" width="50%">
+                    @endif
+                  </li>
+                  <li>d. {{ $value->pilihan_d }}
+                    <br>
+                    @if ($value->img_pilihan_d)
+                        <img src="{{asset('storage/'.$value->img_pilihan_d)}}" alt="{{$value->img_pilihan_d}}" width="50%">
+                    @endif
+                  </li>
+                  <li>e. {{ $value->pilihan_e }}
+                    <br>
+                    @if ($value->img_pilihan_e)
+                        <img src="{{asset('storage/'.$value->img_pilihan_e)}}" alt="{{$value->img_pilihan_e}}" width="50%">
+                    @endif
+                  </li>
                 </ol>
                 <strong>Jawaban : {{ $value->jawaban }}</strong>
               </blockquote>

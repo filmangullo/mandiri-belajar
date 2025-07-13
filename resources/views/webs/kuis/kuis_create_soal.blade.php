@@ -23,22 +23,47 @@
         <div class="col-md-12">
           <label for="w3mission">Option - A : </label>
           <textarea name="option_a" rows="2" style="width:100%" required></textarea>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imgOptA" name="imgOptA" accept="image/*">
+            <label class="custom-file-label" for="imgOptA">Lampirkan Gambar</label>
+          </div>
+          <img id="blahOptA" src="#" alt="your image" style="width:100%" />
         </div>
         <div class="col-md-12">
           <label for="w3mission">Option - B : </label>
           <textarea name="option_b" rows="2" style="width:100%" required></textarea>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imgOptB" name="imgOptB" accept="image/*">
+            <label class="custom-file-label" for="imgOptB">Lampirkan Gambar</label>
+          </div>
+          <img id="blahOptB" src="#" alt="your image" style="width:100%" />
         </div>
         <div class="col-md-12">
           <label for="w3mission">Option - C : </label>
           <textarea name="option_c" rows="2" style="width:100%" required></textarea>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imgOptC" name="imgOptC" accept="image/*">
+            <label class="custom-file-label" for="imgOptC">Lampirkan Gambar</label>
+          </div>
+          <img id="blahOptC" src="#" alt="your image" style="width:100%" />
         </div>
         <div class="col-md-12">
           <label for="w3mission">Option - D : </label>
           <textarea name="option_d" rows="2" style="width:100%" required></textarea>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imgOptD" name="imgOptD" accept="image/*">
+            <label class="custom-file-label" for="imgOptD">Lampirkan Gambar</label>
+          </div>
+          <img id="blahOptD" src="#" alt="your image" style="width:100%" />
         </div>
         <div class="col-md-12">
           <label for="w3mission">Option - E : </label>
           <textarea name="option_e" rows="2" style="width:100%" required></textarea>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imgOptE" name="imgOptE" accept="image/*">
+            <label class="custom-file-label" for="imgOptE">Lampirkan Gambar</label>
+          </div>
+          <img id="blahOptE" src="#" alt="your image" style="width:100%" />
         </div>
         <div class="col-md-12 form-group">
           <label for="w3mission">Jawaban </label>
@@ -59,19 +84,49 @@
 </div>
 
 <script type="text/javascript">
-function readURL(input) {
-if (input.files && input.files[0]) {
-  var reader = new FileReader();
-
-  reader.onload = function(e) {
-    $('#blah').attr('src', e.target.result);
+// Generic image preview function
+  function readURL(input, previewSelector, labelSelector) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        $(previewSelector)
+          .attr('src', e.target.result)
+          .show();
+      };
+      reader.readAsDataURL(input.files[0]);
+      // Tampilkan nama file di label
+      const fileName = input.files[0].name;
+      $(labelSelector).text(fileName);
+    }
   }
 
-  reader.readAsDataURL(input.files[0]); // convert to base64 string
-}
-}
+  // Preview Soal
+  $('#imgInp').on('change', function() {
+    readURL(this, '#blah', 'label[for="imgInp"]');
+  });
 
-$("#imgInp").change(function() {
-readURL(this);
-});
+  // Preview Option A
+  $('#imgOptA').on('change', function() {
+    readURL(this, '#blahOptA', 'label[for="imgOptA"]');
+  });
+
+  // Preview Option B
+  $('#imgOptB').on('change', function() {
+    readURL(this, '#blahOptB', 'label[for="imgOptB"]');
+  });
+
+  // Preview Option C
+  $('#imgOptC').on('change', function() {
+    readURL(this, '#blahOptC', 'label[for="imgOptC"]');
+  });
+
+  // Preview Option D
+  $('#imgOptD').on('change', function() {
+    readURL(this, '#blahOptD', 'label[for="imgOptD"]');
+  });
+
+  // Preview Option E
+  $('#imgOptE').on('change', function() {
+    readURL(this, '#blahOptE', 'label[for="imgOptE"]');
+  });
 </script>

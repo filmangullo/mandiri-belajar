@@ -72,7 +72,7 @@ menu-active
                     </div>
                 </div>
             @endif
-            
+
             @include('layouts.alert')
             <center>
                 <h3>Nilai Kuis : {{ $nilai_kuis }}</h3>
@@ -100,20 +100,58 @@ menu-active
                                       <img src="{{asset('storage/'.$img->img)}}" alt="Girl in a jacket" width="50%">
                                 <?php endforeach; ?>
                                 <br />
-                                <input type="radio" id="pilihan_a[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="a">
-                                <label for="pilihan_a[{{$key}}]">{!! $soal->pilihan_a !!}</label><br>
+                                <div>
+                                    <div>
+                                        <input type="radio" id="pilihan_a[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="a">
+                                        <label for="pilihan_a[{{$key}}]">{!! $soal->pilihan_a !!} </label>
+                                    </div>
+                                    @if ($soal->img_pilihan_a)
+                                        <img src="{{asset('storage/'.$soal->img_pilihan_a)}}" alt="{{$soal->img_pilihan_a}}" width="50%">
+                                    @endif
+                                </div>
+                                <br>
+                                <div>
+                                    <div>
+                                        <input type="radio" id="pilihan_b[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="b">
+                                        <label for="pilihan_b[{{$key}}]">{!! $soal->pilihan_b !!}</label>
+                                    </div>
+                                    @if ($soal->img_pilihan_b)
+                                        <img src="{{asset('storage/'.$soal->img_pilihan_b)}}" alt="{{$soal->img_pilihan_b}}" width="50%">
+                                    @endif
+                                </div>
+                                <br>
 
-                                <input type="radio" id="pilihan_b[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="b">
-                                <label for="pilihan_b[{{$key}}]">{!! $soal->pilihan_b !!}</label><br>
+                                <div>
+                                    <div>
+                                        <input type="radio" id="pilihan_c[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="c">
+                                        <label for="pilihan_c[{{$key}}]">{!! $soal->pilihan_c !!}</label>
+                                    </div>
+                                        @if ($soal->img_pilihan_c)
+                                            <img src="{{asset('storage/'.$soal->img_pilihan_c)}}" alt="{{$soal->img_pilihan_c}}" width="50%">
+                                        @endif
+                                </div>
+                                <br>
+                                <div>
+                                    <div>
+                                        <input type="radio" id="pilihan_d[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="d">
+                                        <label for="pilihan_d[{{$key}}]">{!! $soal->pilihan_d !!}</label>
+                                    </div>
 
-                                <input type="radio" id="pilihan_c[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="c">
-                                <label for="pilihan_c[{{$key}}]">{!! $soal->pilihan_c !!}</label><br>
-
-                                <input type="radio" id="pilihan_d[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="d">
-                                <label for="pilihan_d[{{$key}}]">{!! $soal->pilihan_d !!}</label><br>
-
-                                <input type="radio" id="pilihan_e[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="e">
-                                <label for="pilihan_e[{{$key}}]">{!! $soal->pilihan_e !!}</label><br>
+                                    @if ($soal->img_pilihan_d)
+                                        <img src="{{asset('storage/'.$soal->img_pilihan_d)}}" alt="{{$soal->img_pilihan_d}}" width="50%">
+                                    @endif
+                                </div>
+                                <br>
+                                <div>
+                                    <div>
+                                        <input type="radio" id="pilihan_e[{{$key}}]" name="jawaban_ke_[{{$key}}]" value="e">
+                                        <label for="pilihan_e[{{$key}}]">{!! $soal->pilihan_e !!}</label>
+                                    </div>
+                                    @if ($soal->img_pilihan_e)
+                                        <img src="{{asset('storage/'.$soal->img_pilihan_e)}}" alt="{{$soal->img_pilihan_e}}" width="50%">
+                                    @endif
+                                </div>
+                                <br>
                                 <!-- Terpilih otomatis jika tidak di jawab -->
                                 <input type="radio" id="pilihan_a" name="jawaban_ke_[{{$key}}]" select hidden
                                     value="null">

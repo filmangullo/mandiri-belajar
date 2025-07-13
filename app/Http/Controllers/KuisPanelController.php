@@ -92,10 +92,45 @@ class KuisPanelController extends Controller
         $query->user_id     = Auth::user()->id;
         $query->soal        = $request->soal;
         $query->pilihan_a   = $request->option_a;
+        if ($request->hasFile('imgOptA')) {
+            $path = $request->file('imgOptA')
+                    ->store('forum_kuis_img_option', 'public');
+
+            $query->img_pilihan_a             = $path;
+            $query->extension_img_pilihan_a   = $request->file('imgOptA')->getClientOriginalExtension();
+        }
         $query->pilihan_b   = $request->option_b;
+        if ($request->hasFile('imgOptB')) {
+            $path = $request->file('imgOptB')
+                    ->store('forum_kuis_img_option', 'public');
+
+            $query->img_pilihan_b             = $path;
+            $query->extension_img_pilihan_b   = $request->file('imgOptB')->getClientOriginalExtension();
+        }
         $query->pilihan_c   = $request->option_c;
+        if ($request->hasFile('imgOptC')) {
+            $path = $request->file('imgOptC')
+                    ->store('forum_kuis_img_option', 'public');
+
+            $query->img_pilihan_c             = $path;
+            $query->extension_img_pilihan_c   = $request->file('imgOptC')->getClientOriginalExtension();
+        }
         $query->pilihan_d   = $request->option_d;
+        if ($request->hasFile('imgOptD')) {
+            $path = $request->file('imgOptD')
+                    ->store('forum_kuis_img_option', 'public');
+
+            $query->img_pilihan_d             = $path;
+            $query->extension_img_pilihan_d   = $request->file('imgOptD')->getClientOriginalExtension();
+        }
         $query->pilihan_e   = $request->option_e;
+        if ($request->hasFile('imgOptE')) {
+            $path = $request->file('imgOptE')
+                    ->store('forum_kuis_img_option', 'public');
+
+            $query->img_pilihan_e             = $path;
+            $query->extension_img_pilihan_e   = $request->file('imgOptE')->getClientOriginalExtension();
+        }
         $query->jawaban     = $request->jawaban;
 
 
@@ -150,6 +185,20 @@ class KuisPanelController extends Controller
         $query->user_id   = Auth::user()->id;
         $query->soal      = $request->soal;
         $query->pilihan_a  = $request->option_a;
+        if ($request->hasFile('imgOptA') && $request->file('imgOptA')->isValid()) {
+            // Hapus file lama jika ada
+            if (! empty($query->img_pilihan_a) && Storage::disk('public')->exists($query->img_pilihan_a)) {
+                Storage::disk('public')->delete($query->img_pilihan_a);
+            }
+
+            // Simpan file baru
+            $newPath = $request->file('imgOptA')
+                            ->store('forum_kuis_img_option', 'public');
+
+            // Update model
+            $query->img_pilihan_a           = $newPath;
+            $query->extension_img_pilihan_a = $request->file('imgOptA')->getClientOriginalExtension();
+        }
         $query->pilihan_b  = $request->option_b;
         $query->pilihan_c  = $request->option_c;
         $query->pilihan_d  = $request->option_d;
